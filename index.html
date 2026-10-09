@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#382216">
-<meta name="description" content="SH Juwara Cafe. Nikmati kopi, pesan melalui WhatsApp, dan pelajari peluang menjadi member.">
-<title>SH Juwara Cafe | Teman Ngopi, Peluang Bertumbuh</title>
+<meta name="description" content="SH Juwara Cafe: Minum Kopinya, Raih Pendapatannya. Kenali produk, bangun pelanggan, dan pelajari peluang menjadi member.">
+<title>SH Juwara Cafe | Minum Kopinya, Raih Pendapatannya</title>
 
 <style>
 :root {
@@ -671,6 +671,91 @@ footer {
   }
 }
 
+
+/* PRODUCT HIGHLIGHTS */
+.product-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.highlight-card {
+  background: #fffaf2;
+  border: 1px solid #e5c9a5;
+  border-radius: 18px;
+  padding: 24px 20px;
+  box-shadow: 0 8px 24px rgba(56, 34, 22, 0.06);
+}
+
+.highlight-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 15px;
+  background: #8f1013;
+  color: #fff4d9;
+  font-size: 26px;
+}
+
+.highlight-card h3 {
+  margin: 0 0 10px;
+  color: #8f1013;
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+.highlight-card p {
+  margin: 0;
+  color: #655347;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.product-highlight-cta {
+  margin-top: 28px;
+  padding: 30px 22px;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff8ed;
+  background: linear-gradient(125deg, #681013, #a91418);
+  box-shadow: 0 12px 28px rgba(90, 12, 15, 0.14);
+}
+
+.product-highlight-cta h3 {
+  margin: 0 0 8px;
+  font-size: clamp(23px, 3vw, 31px);
+  line-height: 1.25;
+}
+
+.product-highlight-cta p {
+  margin: 0 0 18px;
+  color: #f5e4d4;
+}
+
+@media (max-width: 900px) {
+  .product-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .product-highlights {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .highlight-card {
+    padding: 22px;
+  }
+
+  .product-highlight-cta {
+    padding: 26px 18px;
+  }
+}
+
 </style>
 </head>
 
@@ -685,7 +770,7 @@ footer {
     <nav class="nav-links" aria-label="Navigasi utama">
       <a href="#beranda">Beranda</a>
       <a href="#kopi">Order Kopi</a>
-      <a href="#informasi">Informasi Produk</a>
+      <a href="#informasi">Keunggulan Produk</a>
       <a href="#member">Manfaat Member</a>
       <a href="#marketing">Marketing 111</a>
     </nav>
@@ -701,12 +786,11 @@ footer {
     <div>
       <div class="eyebrow">Teman Ngopi, Peluang Bertumbuh</div>
 
-      <h1>Ngopi Rutin,<br>Bangun Peluang Bersama!</h1>
+      <h1>Minum Kopinya,<br>Raih Pendapatannya.</h1>
 
       <p>
-        Kenali Kopi SH Juwara Cafe, premix coffee dengan
-        Ganoderma. Mulai dari menikmati kopi favorit Anda,
-        lalu pelajari peluang menjadi member jika tertarik.
+        Nikmati kopi harian Anda, bagikan pengalaman kepada teman,
+        bangun pelanggan, dan kembangkan peluang income bersama SH Juwara Cafe.
       </p>
 
       <div class="hero-actions">
@@ -789,27 +873,71 @@ footer {
   </div>
 </section>
 
-<!-- INFORMASI PRODUK -->
+<!-- KEUNGGULAN PRODUK -->
 <section class="section info-section" id="informasi">
   <div class="container">
 
     <div class="section-heading">
-      <div class="kicker">Kenali Produk</div>
-      <h2>Mengenal Kopi SH Juwara Cafe</h2>
+      <div class="kicker">Kenali Keunggulan Produk</div>
+      <h2>Bukan Sekadar Kopi Biasa</h2>
       <p>
-        Kenali komposisi, varian, cara penyajian, dan
-        informasi produk dari materi resmi yang terverifikasi.
+        Pilih kopi berkualitas. Pilih Juwara!
+        Kenali keunggulan Kopi SH Juwara Cafe untuk menemani rutinitas Anda.
       </p>
     </div>
 
-    <div class="info-poster">
-      <img src="images/manfaat.png"
-           alt="Infografik informasi Kopi SH Juwara Cafe">
+    <div class="product-highlights">
+
+      <article class="highlight-card">
+        <div class="highlight-icon">☕</div>
+        <h3>Kopi Arabika</h3>
+        <p>
+          Racikan kopi dengan bahan biji kopi pilihan. Kenali karakter rasa
+          kopi SH Juwara sesuai varian favorit Anda.
+        </p>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-icon">🍄</div>
+        <h3>Dengan Ganoderma</h3>
+        <p>
+          Menghadirkan Ganoderma dalam racikan kopi untuk pengalaman menikmati
+          kopi yang berbeda.
+        </p>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-icon">🌿</div>
+        <h3>Krimer Nabati</h3>
+        <p>
+          Perpaduan kopi dan krimer nabati dalam sajian praktis yang mudah
+          dinikmati.
+        </p>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-icon">✨</div>
+        <h3>Praktis Setiap Hari</h3>
+        <p>
+          Mudah disiapkan di rumah, di kantor, maupun saat bepergian.
+          Temukan varian yang sesuai dengan selera Anda.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="product-highlight-cta">
+      <h3>Ganti Kopinya. Rasakan Bedanya.</h3>
+      <p>
+        Kenali SH Juwara Cafe dan temukan varian favorit Anda.
+      </p>
+      <a class="btn btn-gold" href="#kopi">Pilih Kopi Favorit Anda ↓</a>
     </div>
 
     <p class="info-caption">
-      Pastikan informasi dan klaim pada materi produk telah
-      diverifikasi sebelum digunakan sebagai promosi publik.
+      Informasi bahan dan karakteristik produk perlu merujuk pada label serta
+      materi resmi yang telah diverifikasi. Informasi ini bukan klaim pengobatan
+      atau jaminan manfaat kesehatan.
     </p>
 
   </div>
@@ -890,11 +1018,11 @@ footer {
   <div class="container">
 
     <div class="section-heading">
-      <div class="kicker">Marketing 111</div>
-      <h2>Mulai dari Secangkir Kopi, Buka Peluang Penghasilan!</h2>
+      <div class="kicker">Marketing 1-1-1</div>
+      <h2>Minum Kopinya, Raih Pendapatannya.</h2>
       <p>
-        Tidak harus langsung besar. Mulailah dari langkah sederhana,
-        bangun pelanggan, dan kembangkan aktivitas secara konsisten.
+        Mulai dari kebiasaan sederhana. Kenali produknya, bagikan pengalaman,
+        lalu bangun peluang secara konsisten.
       </p>
     </div>
 
@@ -902,28 +1030,28 @@ footer {
 
       <article class="step-card">
         <div class="step-icon">1</div>
-        <h3>Mulai dari Diri Sendiri</h3>
+        <h3>Ganti Kopi Harian Anda</h3>
         <p>
-          Nikmati produk, kenali keunggulannya, dan bangun pengalaman
-          yang bisa Anda ceritakan dengan jujur kepada orang lain.
+          Biasa minum kopi? Kenali Kopi SH Juwara dan jadikan alternatif
+          kopi harian Anda sesuai selera.
         </p>
       </article>
 
       <article class="step-card">
         <div class="step-icon">1</div>
-        <h3>Bangun Jaringan, Buka Peluang</h3>
+        <h3>Ajak 1 Teman Setiap Bulan</h3>
         <p>
-          Ajak satu teman setiap bulan untuk mengenal produk.
-          Percakapan sederhana bisa menjadi awal hubungan pelanggan baru.
+          Jika Anda cocok dengan produknya, bagikan pengalaman secara jujur
+          dan ajak teman yang tertarik untuk mengenalnya.
         </p>
       </article>
 
       <article class="step-card">
         <div class="step-icon">1</div>
-        <h3>Konsisten, Bertumbuh, Gandakan</h3>
+        <h3>Konsisten dan Kembangkan</h3>
         <p>
-          Bangun pelanggan, jaga hubungan, dan kembangkan jaringan
-          secara bertahap. Konsistensi membuka peluang untuk bertumbuh.
+          Bangun pelanggan, jaga hubungan, dan pelajari cara mengembangkan
+          aktivitas serta peluang income secara bertahap.
         </p>
       </article>
 
@@ -932,15 +1060,15 @@ footer {
     <div class="income-motivation">
       <div class="income-motivation-icon">↗</div>
       <div>
-        <h3>Ingin Peluang Income yang Lebih Besar?</h3>
+        <h3>Peluang Income Dibangun dari Aktivitas Nyata</h3>
         <p>
-          Jangan hanya menunggu hasil. Tingkatkan aktivitas, perluas
-          percakapan dengan calon pelanggan, layani pelanggan dengan baik,
-          dan bangun kebiasaan produktif setiap hari.
+          Mulai dari mengenal produk, melayani pelanggan, memperluas jaringan,
+          dan memahami Program Prestasi. Pelajari tabel bonus resmi agar Anda
+          memahami cara kerja dan kualifikasi program.
         </p>
         <p class="income-note">
-          Hasil bergantung pada aktivitas, penjualan, dan ketentuan program
-          yang berlaku. Penghasilan tidak dijamin.
+          Pendapatan bergantung pada aktivitas, hasil penjualan, kualifikasi,
+          dan ketentuan resmi program. Penghasilan tidak dijamin.
         </p>
       </div>
     </div>
@@ -952,11 +1080,10 @@ footer {
 <section class="final-cta">
   <div class="container">
 
-    <h2>Yuk, Mulai dari Secangkir Kopi!</h2>
+    <h2>Mulai dari Secangkir Kopi. Bangun Peluang Anda.</h2>
 
     <p>
-      Mau order kopi atau ingin mengetahui lebih lanjut
-      tentang peluang menjadi member? Hubungi kami.
+      Nikmati produknya, kenali peluangnya, dan tanyakan cara menjadi member SH Juwara Cafe.
     </p>
 
     <a class="btn btn-gold"
