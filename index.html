@@ -796,10 +796,27 @@ footer {
   }
 }
 
+
+/* MEMBER REFERRAL */
+.referral-note {
+  display: none;
+  margin: 8px auto 0;
+  padding: 7px 12px;
+  max-width: 1120px;
+  font-size: 13px;
+  color: #69432e;
+  text-align: center;
+  background: #fff0d7;
+  border: 1px solid #ead4ae;
+  border-radius: 10px;
+}
+.referral-note.is-visible { display: block; }
+
 </style>
 </head>
 
 <body>
+<div id="memberReferralNote" class="referral-note" aria-live="polite"></div>
 
 <header>
   <div class="container navbar">
@@ -1171,6 +1188,66 @@ footer {
    aria-label="Order Kopi SH Juwara Cafe melalui WhatsApp">
   ☎ Chat WhatsApp
 </a>
+
+
+<script>
+/*
+ * SH Juwara Cafe - Member Referral Prototype
+ * Link format: ?ref=KODEMEMBER
+ * The member directory is public. Only publish WhatsApp numbers that members agree to share.
+ */
+(async function () {
+  const OFFICIAL_WHATSAPP = "6285813390064";
+  const DEFAULT_MESSAGE = "Halo, saya mau tahu lebih lanjut tentang SH Juwara Cafe.";
+  const params = new URLSearchParams(window.location.search);
+  const requestedCode = (params.get("ref") || "").trim().toUpperCase();
+
+  let directory = {};
+  try {
+    const response = await fetch("members.json", { cache: "no-store" });
+    if (response.ok) directory = await response.json();
+  } catch (error) {
+    console.warn("Daftar member belum dapat dimuat. Menggunakan WhatsApp utama.", error);
+  }
+
+  const member = requestedCode && directory[requestedCode] ? directory[requestedCode] : null;
+  const validCode = member ? requestedCode : "";
+  const memberName = member && member.name ? member.name : "SH Juwara Cafe";
+  const whatsapp = member && member.whatsapp ? String(member.whatsapp).replace(/\D/g, "") : OFFICIAL_WHATSAPP;
+
+  // Tampilkan informasi referal jika kode valid.
+  const note = document.getElementById("memberReferralNote");
+  if (note && member && requestedCode !== "DEFAULT") {
+    note.textContent = "Anda terhubung dengan " + memberName + " — Member SH Juwara Cafe.";
+    note.classList.add("is-visible");
+  }
+
+  // Ubah tautan WhatsApp biasa agar menuju nomor member.
+  // Tautan katalog WhatsApp (/p/...) tetap menuju katalog resmi karena katalog dimiliki akun bisnis utama.
+  const whatsappLinks = document.querySelectorAll('a[href*="wa.me/"]');
+  whatsappLinks.forEach(function (link) {
+    const oldUrl = link.getAttribute("href") || "";
+    if (oldUrl.includes("/p/")) return;
+
+    let message = DEFAULT_MESSAGE;
+    try {
+      const old = new URL(oldUrl, window.location.href);
+      const oldText = old.searchParams.get("text");
+      if (oldText) message = oldText;
+    } catch (_) {}
+
+    if (member && validCode) {
+      message += "\n\nSaya mendapatkan tautan dari " + memberName + " (Kode: " + validCode + ").";
+    }
+
+    const target = new URL("https://wa.me/" + whatsapp);
+    target.searchParams.set("text", message);
+    link.setAttribute("href", target.toString());
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener");
+  });
+})();
+</script>
 
 </body>
 </html>
