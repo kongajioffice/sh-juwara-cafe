@@ -756,6 +756,46 @@ footer {
   }
 }
 
+
+/* NAVIGATION TYPOGRAPHY — larger and easier to read */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.4;
+  padding: 10px 6px;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    justify-content: center;
+    gap: 6px 14px;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+    padding: 8px 5px;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-links {
+    gap: 6px 12px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 8px 4px;
+  }
+}
+
 </style>
 </head>
 
